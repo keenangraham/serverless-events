@@ -1,4 +1,5 @@
 import json
+import sys
 
 
 def make_query_string_from_grouped_params(grouped_params):
@@ -11,7 +12,7 @@ def make_query_string_from_grouped_params(grouped_params):
 
 
 def make_query_string_from_event(event):
-    grouped_params =  event.get('multiValueQueryStringParameters', {})
+    grouped_params =  event.get('multiValueQueryStringParameters') or {}
     return make_query_string_from_grouped_params(grouped_params)
 
 
